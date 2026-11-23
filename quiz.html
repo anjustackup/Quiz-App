@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+</head>
+<body>
+    <script>
+        let questions = [
+            {
+                question : "What is the output of 10 + 5?",
+                options : ["105","15","50","5"],
+                answer : 2
+            },
+            {
+                question : "Which keyword declares a block-scoped variable?",
+                options : ["var","let","const","function"],
+                answer : 2
+            },
+            {
+                question : "Which symbol is used for strict equality?",
+                options : ["=","==","===","!="],
+                answer : 3 
+            },
+            {
+                question : "Which method adds an item to an array?",
+                options : ["pop()","push()","shift()","map()"],
+                answer : 2
+            },
+            {
+                question : "Which keyword is used to define a function?",
+                options : ["for","if","function","let"],
+                answer : 3
+            }
+        ];
+        function start() {
+
+            let score = 0;
+            console.log("QUIZ Questions");
+            for (let i = 0; i < questions.length; i++){
+                console.log("-----------------");
+                console.log("Question" + (i + 1) + ":" + questions[i].question);
+            
+                for (let j = 0; j < questions[i].options.length;j++){
+                    console.log((j+1) + "." +questions[i].options[j]);
+                }
+        
+            let useranswer = Number(prompt(
+                "Question" + (i+1) + "." + questions[i].question + "\n\n"+
+                "1." + questions[i].options[0] + "\n" +
+                "2." + questions[i].options[1] + "\n" +
+                "3." + questions[i].options[2] + "\n" +
+                "4." + questions[i].options[3] + "\n" +
+                "Enter your answer (1-4):"
+            ));
+                if (useranswer === questions[i].answer){
+                console.log("Correct Answer!");
+                score++;
+                
+            } else {
+                console.log("Wrong Answer!");
+                console.log("Correct Answer:"+
+                    questions[i].options[questions[i].answer - 1]
+                );
+            }
+        }
+            let totalQuestions = questions.length;
+            let incorrect= totalQuestions - score;
+            let percentage = (score / totalQuestions) * 100;
+
+            console.log("-----------------");
+            console.log("===== QUIZ RESULT =====");
+            console.log("Total Questions:" + totalQuestions);
+            console.log("Correct Answers:" + score);
+            console.log("Incorrect Answers:" + incorrect);
+            console.log("Final Score:" + score + "/" + totalQuestions);
+            console.log("Percentage: " + percentage + "%");
+    }
+        start();
+    </script>
+</body>
+</html>
